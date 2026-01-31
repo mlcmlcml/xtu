@@ -1,0 +1,37 @@
+{
+    "aclInfo": {
+      "id": 1,
+      "title": "如何处理sql注入问题",
+      "cateName": "问答",
+      "stuHead": "",
+      "stuName": "磊磊",
+      "createTime": "2023-10-27",
+      "content": "如题 救救孩子吧 马上就要数据库期末考了",
+      "tagList": [
+        { "id": 1, "name": "sql" },
+        { "id": 2, "name": "问答" }
+      ],
+      "viewCount": 123
+    },
+    "comments": [
+      {
+        "id": 1,
+        "authorHead": "",
+        "authorName": "胡胡",
+        "createTime": "2023-10-28",
+        "content": "你说的对 但是谢大说不会考。",
+        "authorId": 1,
+        "children": [
+          {
+            "id": 2,
+            "authorHead": "",
+            "authorName": "恺恺",
+            "toAuthorName": "胡胡",
+            "createTime": "2023-10-28",
+            "content": "什么? 那我白复习这么久了",
+            "authorId": 2
+          }
+        ]
+      }
+    ]
+  }

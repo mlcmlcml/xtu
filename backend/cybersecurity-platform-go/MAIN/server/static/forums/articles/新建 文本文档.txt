@@ -1,0 +1,51 @@
+-- 步骤1: 插入标签
+INSERT INTO forum_tags (name) VALUES
+('钓鱼攻击'),
+('安全防范'),
+('DDoS'),
+('网络攻击'),
+('防御技术');
+
+-- 步骤2: 插入第一篇文章
+INSERT INTO forum_articles (title, content_path, stuId, stuName, stuHead, cateId, isTop, isEss, viewCount, createTime) VALUES
+(
+  '如何防范钓鱼攻击',
+  '/api/forum/articles/1.txt',
+  '2021001',
+  'huhu',
+  'http://localhost:3000/img/user/avatar-1755575549283-673622616.jpg',
+  1,  -- 讨论
+  1,  -- 置顶
+  1,  -- 精华
+  120,
+  '2023-10-25 14:30:00'
+);
+
+-- 获取第一篇文章的ID
+SET @article1 = LAST_INSERT_ID();
+
+-- 步骤3: 插入第二篇文章
+INSERT INTO forum_articles (title, content_path, stuId, stuName, stuHead, cateId, isTop, isEss, viewCount, createTime) VALUES
+(
+  '什么是DDoS攻击？',
+  '/api/forum/articles/2.txt',
+  '2021002',
+  '李四',
+  'https://example.com/avatars/lisi.png',
+  2,  -- 问答
+  0,  -- 不置顶
+  1,  -- 精华
+  85,
+  '2023-10-26 09:15:00'
+);
+
+-- 获取第二篇文章的ID
+SET @article2 = LAST_INSERT_ID();
+
+-- 步骤4: 关联标签（使用明确的ID）
+INSERT INTO article_tags (article_id, tag_id) VALUES
+(@article1, (SELECT id FROM forum_tags WHERE name = '钓鱼攻击' LIMIT 1)),
+(@article1, (SELECT id FROM forum_tags WHERE name = '安全防范' LIMIT 1)),
+(@article2, (SELECT id FROM forum_tags WHERE name = 'DDoS' LIMIT 1)),
+(@article2, (SELECT id FROM forum_tags WHERE name = '网络攻击' LIMIT 1)),
+(@article2, (SELECT id FROM forum_tags WHERE name = '防御技术' LIMIT 1));

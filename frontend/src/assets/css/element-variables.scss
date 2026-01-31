@@ -1,0 +1,25 @@
+/* 改变主题色变量 */
+// Element Plus 使用 CSS 变量或不同的 SCSS 变量名，旧的 $--color-primary 引入方式已失效
+
+$--color-primary: #ef4444;
+$--color-success: #18C9B1;
+
+/* 关键修复：删除下面这两行，它们是导致编译失败的元凶 */
+// $--font-path: '~element-ui/lib/theme-chalk/fonts'; 
+// @import "~element-ui/packages/theme-chalk/src/index"; 
+
+/* 适配 Element Plus 的按钮样式 */
+:deep(.el-button--primary) {
+  background: linear-gradient(to right, #ec4899, #ef4444, #eab308) !important;
+  border-color: transparent !important;
+}
+
+:deep(.el-button--success) {
+  background: linear-gradient(to right, #bbf7d0, #4ade80, #22c55e) !important;
+  border-color: transparent !important;
+}
+
+:deep(.el-button--warning) {
+  background: linear-gradient(to right, #f97316, #fde047) !important;
+  border-color: transparent !important;
+}
