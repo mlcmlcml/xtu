@@ -89,10 +89,12 @@ export default {
     },
   },
   watch: {
-    dialogfindpass(val, news) {
-      this.dialogFormFindpass = val;
+    dialogfindpass: {
+      handler(val, news) {
+        this.dialogFormFindpass = val;
+      },
+      deep: true,
     },
-    deep: true,
   },
   methods: {
     // 获取短信验证码

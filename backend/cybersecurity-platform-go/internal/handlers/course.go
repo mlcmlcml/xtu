@@ -120,7 +120,7 @@ func GetCourseList(w http.ResponseWriter, r *http.Request) {
 	}
 	
 	// 构建查询
-	var courses []Course
+	courses := make([]Course, 0)
 	var total int
 	
 	// 基础查询
@@ -424,24 +424,18 @@ func sendCourseError(w http.ResponseWriter, httpStatus, code int, message string
 // RegisterCourseRoutes 注册课程相关路由
 func RegisterCourseRoutes() *http.ServeMux {
 	mux := http.NewServeMux()
-	
-	// 课程列表
-	mux.HandleFunc("/api/courses", func(w http.ResponseWriter, r *http.Request) {
-		if r.Method == http.MethodGet {
+
+	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+
+		// 如果路径是 /api/courses 或 /api/courses/
+		if r.URL.Path == "/api/courses" || r.URL.Path == "/api/courses/" {
 			GetCourseList(w, r)
-		} else {
-			sendCourseError(w, http.StatusMethodNotAllowed, 405, "方法不允许")
+			return
 		}
+
+		// 其他情况当作课程详情
+		GetCourseDetail(w, r)
 	})
-	
-	// 课程详情
-	mux.HandleFunc("/api/courses/", func(w http.ResponseWriter, r *http.Request) {
-		if r.Method == http.MethodGet {
-			GetCourseDetail(w, r)
-		} else {
-			sendCourseError(w, http.StatusMethodNotAllowed, 405, "方法不允许")
-		}
-	})
-	
+
 	return mux
 }

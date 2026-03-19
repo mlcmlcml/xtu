@@ -20,7 +20,7 @@
         <div class="item-contain">
           <span class="title">考试类型：</span>
           <div class="item-radio">
-            <el-radio-group v-model="search.paperType" size="mini">
+            <el-radio-group v-model="search.paperType" size="small">
               <el-radio-button label="1">随堂练习</el-radio-button>
               <el-radio-button label="2">考试试卷</el-radio-button>
             </el-radio-group>
@@ -29,7 +29,7 @@
         <div class="item-contain">
           <span class="title">我的课程：</span>
           <div class="item-radio">
-            <el-radio-group v-model="search.courseId" size="mini">
+            <el-radio-group v-model="search.courseId" size="small">
               <el-radio-button
                 v-for="item in courseList"
                 :key="item.id"
@@ -54,10 +54,10 @@
             <div class="font-desc">开始时间：{{ item.limitStartTime }}</div>
             <div class="font-desc">结束时间：{{ item.limitEndTime }}</div>
             <div style="margin-top: 10px; text-align: right">
-              <!-- <el-button @click="$router.push(`/do?id=${item.id}`)" size="mini" -->
+              <!-- <el-button @click="$router.push(`/do?id=${item.id}`)" size="small" -->
               <el-button
                 @click="startExam(item.id, item.courseName)"
-                size="mini"
+                size="small"
                 >开始答题</el-button
               >
             </div>

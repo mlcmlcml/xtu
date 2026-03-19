@@ -42,11 +42,11 @@
             <el-button
               type="primary"
               round
-              size="mini"
+              size="small"
               @click.native="gologinClick()"
               >登录</el-button
             >
-            <el-button round size="mini" @click.native="goregister()"
+            <el-button round size="small" @click.native="goregister()"
               >注册</el-button
             >
           </div>

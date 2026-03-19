@@ -68,11 +68,13 @@ export default {
     },
   },
   watch: {
-    dialoglogin(val, news) {
-      // console.log(val, news, "-------------");
-      this.dialogFormLogin = val;
+    dialoglogin: {
+      handler(val, news) {
+        // console.log(val, news, "-------------");
+        this.dialogFormLogin = val;
+      },
+      deep: true,
     },
-    deep: true,
   },
   methods: {
     closeDialog() {

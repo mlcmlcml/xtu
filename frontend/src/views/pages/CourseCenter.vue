@@ -158,14 +158,14 @@
           <p :title="item.title">{{ item.title }}</p>
           <div class="pdf-actions">
             <el-button 
-              size="mini" 
+              size="small" 
               type="primary" 
               @click.stop="handleDownload(item)"
             >
               <i class="el-icon-download"></i> 下载
             </el-button>
             <el-button 
-              size="mini" 
+              size="small" 
               @click.stop="handlePreview(item)"
             >
               <i class="el-icon-view"></i> 预览

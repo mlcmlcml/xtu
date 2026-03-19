@@ -121,6 +121,7 @@ func main() {
 	// mainMux.Handle("/api/register", registerMux)
 	mainMux.Handle("/api/courses/", courseMux)
 	mainMux.Handle("/api/student/", studentMux)
+	mainMux.Handle("/api/teachers", teacherMux)
 	mainMux.Handle("/api/teachers/", teacherMux)
 	mainMux.Handle("/api/forum/", forumMux)
 	mainMux.Handle("/api/", graphMux)

@@ -3,7 +3,7 @@ import { ElMessage } from 'element-plus' // 1. 修改引入包名和组件名
 import store from '@/store'
 
 const service = axios.create({
-  baseURL: 'http://127.0.0.1:8001', 
+  baseURL: 'http://127.0.0.1:3000', 
   timeout: 5000 
 })
 

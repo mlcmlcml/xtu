@@ -8,7 +8,7 @@
         class="personal-el-form"
         ref="form"
         label-width="80px"
-        size="mini"
+        size="small"
         :model="formUser"
       >
         <h2 class="personal-base-header">基本信息</h2>

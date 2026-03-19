@@ -93,10 +93,12 @@ export default {
     },
   },
   watch: {
-    dialogformpasswrod(val, news) {
-      this.dialogFormPassword = val;
+    dialogformpasswrod: {
+      handler(val, news) {
+        this.dialogFormPassword = val;
+      },
+      deep: true,
     },
-    deep: true,
   },
   methods: {
     submitForm(formName) {
